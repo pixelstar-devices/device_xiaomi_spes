@@ -14,17 +14,9 @@ rm -rf hardware/lineage/compat/Android.bp
 
 # Kernel & Vendor Sources
 git clone https://github.com/ofcsayan/vendor_xiaomi_spes -b 14 vendor/xiaomi/spes
-git clone https://github.com/muralivijay/kernel_xiaomi_sm6225 kernel/xiaomi/sm6225
-
-# MiuiCamera
-#git clone https://gitlab.com/ThankYouMario/proprietary_vendor_xiaomi_camera -b uvite-sm6225 vendor/xiaomi/camera
+git clone https://github.com/TheMatheusDev/android_kernel_xiaomi_sm6225-2.git kernel/xiaomi/sm6225
 
 # Sepolicy fix for imsrcsd
 echo -e "${color}Switch back to legacy imsrcsd sepolicy${end}"
 rm -rf device/qcom/sepolicy_vndr/legacy-um/qva/vendor/bengal/ims/imsservice.te
 cp device/qcom/sepolicy_vndr/legacy-um/qva/vendor/bengal/legacy-ims/hal_rcsservice.te device/qcom/sepolicy_vndr/legacy-um/qva/vendor/bengal/ims/hal_rcsservice.te
-
-# Custom KeyGen
-curl -O https://raw.githubusercontent.com/ofcsayan/Key-Gen-signed-script/main/generate_all_keys.sh
-chmod +x generate_all_keys.sh
-./generate_all_keys.sh
